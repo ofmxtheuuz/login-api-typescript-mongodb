@@ -7,7 +7,7 @@ export default class LoginService {
 
     async LogIn(email: string, password: string): Promise<boolean | string> {
         const user: any = await SUser.findOne({ email: email, password: password })
-        console.log(user)
+       
         if(user == null) {
             return new Promise((done) => {
                 done(false);
