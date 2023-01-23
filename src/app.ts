@@ -19,24 +19,27 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars.engine({ defaultLayout: "main" }));
 app.set('view engine', 'handlebars');
 
-
+// Session secret
 app.use(session.default({
     secret: "21831DSA2391DS236ASDSA7812DAASS23213DSA27",
     resave: true,
     saveUninitialized: true,
     cookie: { maxAge: 2 * 60 * 1000 }
 }));
+// Uses
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger.default("dev"))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(parser.default());
 
+// Routes
 import client from "./routes/client";
 app.use('/', client)
 
 const port = config.get<number>('port')
 
+// Database service
 app.listen(port, async () => {
     await db()
     server(`Servidor aberto e operando na porta ${port}: http://localhost:${port}`);
