@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 const app = express()
 
+// dotenv
 require("dotenv").config()
 
 import { server, database, error } from './helpers/message';
