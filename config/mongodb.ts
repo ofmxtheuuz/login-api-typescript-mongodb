@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import config from "config"
+
 import * as log from "../src/helpers/message"
 
 async function connect() {
