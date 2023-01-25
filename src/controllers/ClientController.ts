@@ -24,6 +24,7 @@ export async function Login(req: Request, res: Response) {
 }
 
 export async function Register(req: Request, res: Response) {
+    // Register Service
     let result: boolean = sauth.Register(req.body.username, req.body.email, req.body.password);
     if(result) {
         res.status(201).send({
