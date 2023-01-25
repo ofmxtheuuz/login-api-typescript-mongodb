@@ -6,6 +6,7 @@ let sauth = new LoginService();
 import * as jwt from "jsonwebtoken";
 
 export async function Login(req: Request, res: Response) {
+    // Login Service
     sauth.LogIn(req.body.email, req.body.password).then((value) => {
         if(typeof value == "string") {
             res.status(200).send({
